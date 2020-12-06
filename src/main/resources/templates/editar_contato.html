@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<meta charset="utf-8" />
+	<title>Editar Product</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">		
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Início</a>
+				<a class="navbar-brand" th:href="@{/products}">Listagem de Produtos</a>
+				<a class="navbar-brand" th:href="@{/users}">Listagem de Usuários</a>
+				<a class="navbar-brand" th:href="@{/contatos}">Listagem de Contatos</a>
+				<a class="navbar-brand" th:href="@{/contatos/novo}">Cadastrar contatos</a>
+			</div>			
+		<ul class="nav navbar-nav navbar-right">
+        <li><a style="margin-right:10px;" sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0" th:href="@{/logout}"><span class="material-icons">
+login
+</span>Logout</a></li>       
+      </ul>
+	</nav>
+	<br><br><br>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Página inicial</a></li>
+    <li class="breadcrumb-item"><a href="/contatos">Lista de contatos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Editar contato</li>
+  </ol>
+</nav>
+	<div align="center">	
+		<h1>Editar Contato</h1>
+		<br />
+		
+		<form action="#" th:action="@{/contatos/save}" th:object="${contato}"
+			method="post">
+            <div class="form-group">
+			<table border="0" style="border-collapse: separate; border-spacing: 8px;">
+				<tr>				
+					<td>Product ID:</td>
+					<td>
+						<input type="text" class="form-control" th:field="*{id}" readonly="readonly" />
+					</td>
+				</tr>			
+				<tr>				
+					<td>Nome:</td>
+					<td>
+						<input type="text" class="form-control" th:field="*{nome}" placeholder="Exemplo: John doe" />
+					</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input type="email" class="form-control" th:field="*{email}" placeholder="Exemplo: exemplo@exemplo.com" /></td>
+				</tr>												
+				<tr>
+					<td colspan="2"><button type="submit" class="btn btn-success">Salvar alterações</button> </td>
+				</tr>
+			</table>
+			</div>
+		</form>
+		</div>
+		</div>
+	
+	
+	<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href=""> Todos os direitos reservados</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+	
+</body>
+</html>

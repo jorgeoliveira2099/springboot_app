@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<title>Registration</title>
+
+<style type="text/css">
+/*Downloaded from https://www.codeseek.co/ygoex/multiple-item-product-carousel-bootstrap-337-meeaGw */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,900,700);
+html {
+  font-size: 16px;
+}
+
+h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.125rem;
+  font-weight: 700;
+  color: #444;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 55px 0 35px;
+}
+
+a {
+  color: #ddd;
+  text-transform: capitalize;
+  font-size: 24px;
+}
+a:hover {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.carousel-inner {
+  margin: auto;
+  width: 90%;
+}
+
+.carousel-control {
+  width: 4%;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+.glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
+  margin-top: -10px;
+  margin-left: -10px;
+  color: #444;
+}
+
+.carousel-inner a {
+  display: table-cell;
+  height: 180px;
+  width: 200px;
+  vertical-align: middle;
+}
+.carousel-inner img {
+  max-height: 150px;
+  margin: auto auto;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    left: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    left: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@media (min-width: 767px) and (max-width: 992px) {
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    left: 0;
+    -webkit-transform: translate3d(50%, 0, 0);
+    transform: translate3d(50%, 0, 0);
+  }
+
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    left: 0;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@media (min-width: 992px) {
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    left: 0;
+    -webkit-transform: translate3d(16.7%, 0, 0);
+    transform: translate3d(16.7%, 0, 0);
+  }
+
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    left: 0;
+    -webkit-transform: translate3d(-16.7%, 0, 0);
+    transform: translate3d(-16.7%, 0, 0);
+  }
+}
+
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			<a class="navbar-brand" href="#" th:href="@{/}">Início</a>
+				<a class="navbar-brand" th:href="@{/products}">Listagem de Produtos</a>
+				<a class="navbar-brand" th:href="@{/users}">Listagem de Usuários</a>
+				<a class="navbar-brand" th:href="@{/contatos}">Listagem de Contatos</a>
+				<a class="navbar-brand" th:href="@{/contatos/novo}">Cadastrar contatos</a>
+			</div>			
+		<ul class="nav navbar-nav navbar-right">
+        <li><a style="margin-right:10px;" sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0" th:href="@{/logout}"><span class="material-icons">
+login
+</span>Logout</a></li>       
+      </ul>
+	</nav>
+ 
+	<br>
+	<br>
+	<div class="container">
+	<br>
+		
+	 <div class="col-md-12 text-center"><h3>Bem vindo! </h3><br></h4>O que deseja fazer ?</h4></div>
+<div class="col-md-10 col-md-offset-1">
+<div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="col-md-2 col-sm-8 col-xs-12"><a style="color:black;font-size:25px;" href="/contatos"><img src="https://www.tecword.com.br/wp-content/uploads/2017/06/Google-contatos-1.png" class="img-responsive">Lista de contatos</a></div>
+    </div>
+    <div class="item">
+      <div class="col-md-2 col-sm-8 col-xs-12"><a style="color:black;font-size:25px;" href="/products"><img src="https://www.pngitem.com/pimgs/m/526-5266889_college-students-clipart-hd-png-download.png" class="img-responsive">Lista de Estudantes</a></div>
+    </div>
+    <div class="item">
+      <div class="col-md-2 col-sm-8 col-xs-12"><a style="color:black;font-size:25px;" href="/products"><img src="https://www.frooition.com/blog/wp-content/uploads/2018/07/Copy-of-New-Categories-added-to-product-based-shopping-experience-4.png" class="img-responsive">Lista de produtos</a></div>
+    </div>
+   
+   <div class="item">
+      <div class="col-md-2 col-sm-8 col-xs-12"><a style="color:black;font-size:25px;" href="/users"><img src="https://pushshift.io/wp-content/uploads/2019/06/user-management_3.jpg" class="img-responsive">Lista de Usuários</a></div>
+    </div>
+    
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+</div>
+</div>
+	
+	<br>
+	
+	
+		<a href="/products" type="button" class="btn btn-primary">Produtos</a>
+	</div>
+
+<script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js" integrity="sha256-Ap4KLoCf1rXb52q+i3p0k2vjBsmownyBTE1EqlRiMwA=" crossorigin="anonymous"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+	<script type="text/javascript">
+
+	/*Downloaded from https://www.codeseek.co/ygoex/multiple-item-product-carousel-bootstrap-337-meeaGw */
+	$('.carousel[data-type="multi"] .item').each(function(){
+	  var next = $(this).next();
+	  if (!next.length) {
+	    next = $(this).siblings(':first');
+	  }
+	  next.children(':first-child').clone().appendTo($(this));
+
+	  for (var i=0;i<4;i++) {
+	    next=next.next();
+	    if (!next.length) {
+	    	next = $(this).siblings(':first');
+	  	}
+	    
+	    next.children(':first-child').clone().appendTo($(this));
+	  }
+	});
+	</script>
+</body>
+</html>
+    
